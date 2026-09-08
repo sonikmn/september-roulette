@@ -89,12 +89,12 @@ function loadMovies() {
 
 
     return [
-        "finding nemo",
-        "pirates of the caribbean",
-        "twilight",
-        "men in black",
+        "losr in translation",
+        "the fall",
         "donnie darko",
-        "leon"
+        "artificial intelligence: ai",
+        "batman",
+        "sen to chihiro no kamikakushi"
     ];
 }
 
