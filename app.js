@@ -89,7 +89,7 @@ function loadMovies() {
 
 
     return [
-        "losr in translation",
+        "lost in translation",
         "the fall",
         "donnie darko",
         "artificial intelligence: ai",
