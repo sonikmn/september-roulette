@@ -413,17 +413,17 @@ function drawWheel() {
 
     buttonGradient.addColorStop(
         0,
-        "#ffd6e7"
+        "#dbe7ff"
     );
 
     buttonGradient.addColorStop(
         0.45,
-        "#e9d7ff"
+        "#e3e4ff"
     );
 
     buttonGradient.addColorStop(
         1,
-        "#d4fbd8"
+        "#fff5c7"
     );
 
 
