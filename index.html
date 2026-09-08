@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>кино-рулетка</title>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>;
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<main class="app">
+
+<header>
+<h1>september roulette</h1>
+<p>its hard to decide</p>
+</header>
+
+<section class="wheel-section">
+
+<div class="pointer"></div>
+
+<canvas id="wheel" width="700" height="700"></canvas>
+
+<button id="spinButton">
+lets go
+</button>
+
+</section>
+
+<section class="movies-section">
+
+<div class="section-title">
+<span>my movies</span>
+<span id="movieCount">0</span>
+</div>
+
+<div id="movieList"></div>
+
+<div class="add-movie">
+<input
+id="movieInput"
+type="text"
+placeholder="movie name"
+maxlength="60"
+>
+
+<button id="addButton">+</button>
+</div>
+
+</section>
+
+<div id="result" class="result hidden">
+<div class="result-label">chosen one</div>
+<div id="resultMovie"></div>
+<button id="againButton">spin again</button>
+</div>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
