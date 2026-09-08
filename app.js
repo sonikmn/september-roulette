@@ -231,12 +231,6 @@ function drawWheel() {
             start + slice;
 
 
-        /*
-           простой прозрачный цвет.
-
-           никакого белого блика.
-        */
-
         ctx.beginPath();
 
         ctx.moveTo(
@@ -311,7 +305,7 @@ function drawWheel() {
                 movies.length > 12
                     ? 17
                     : 21
-            }px DM Sans, sans-serif`;
+            }px "Zen Kaku Gothic New", sans-serif`;
 
 
         ctx.textAlign =
@@ -336,10 +330,7 @@ function drawWheel() {
 
 
     /*
-       мягкая внешняя рамка.
-
-       раньше была почти чёрная,
-       теперь она очень прозрачная.
+       мягкая внешняя рамка
     */
 
     ctx.beginPath();
@@ -380,6 +371,72 @@ function drawWheel() {
     ctx.lineWidth = 1.5;
 
     ctx.stroke();
+
+
+    /*
+       непрозрачная центральная
+       подложка для кнопки lets go
+
+       она полностью закрывает
+       линии секторов под кнопкой
+    */
+
+    const buttonRadius =
+        radius * 0.235;
+
+
+    ctx.beginPath();
+
+    ctx.arc(
+        center,
+        center,
+        buttonRadius,
+        0,
+        Math.PI * 2
+    );
+
+
+    const buttonGradient =
+        ctx.createLinearGradient(
+            center - buttonRadius,
+            center - buttonRadius,
+            center + buttonRadius,
+            center + buttonRadius
+        );
+
+
+    buttonGradient.addColorStop(
+        0,
+        "#ffd6e7"
+    );
+
+    buttonGradient.addColorStop(
+        0.45,
+        "#e9d7ff"
+    );
+
+    buttonGradient.addColorStop(
+        1,
+        "#d4fbd8"
+    );
+
+
+    ctx.fillStyle =
+        buttonGradient;
+
+    ctx.fill();
+
+
+    /*
+       мягкая граница
+    */
+
+    ctx.strokeStyle =
+        "rgba(255, 255, 255, 0.85)";
+
+    ctx.lineWidth = 3;
+
+    ctx.stroke();
 }
 
 
@@ -413,7 +470,7 @@ function hexToRgba(hex, alpha) {
 
 
 /* -------------------------
-   список фильмов
+   список вариантов
 ------------------------- */
 
 function renderMovies() {
@@ -497,7 +554,7 @@ function renderMovies() {
 
 
 /* -------------------------
-   добавить фильм
+   добавить вариант
 ------------------------- */
 
 function addMovie() {
