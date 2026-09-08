@@ -1,0 +1,248 @@
+:root {
+--bg: #f5f3ef;
+--card: #ffffff;
+--text: #191919;
+--muted: #8c8c8c;
+--line: #e8e5df;
+--accent: #191919;
+}
+
+* {
+box-sizing: border-box;
+-webkit-tap-highlight-color: transparent;
+}
+
+body {
+margin: 0;
+background: var(--bg);
+color: var(--text);
+font-family:
+-apple-system,
+BlinkMacSystemFont,
+"Helvetica Neue",
+Arial,
+sans-serif;
+}
+
+button,
+input {
+font: inherit;
+}
+
+button {
+border: 0;
+cursor: pointer;
+}
+
+.app {
+width: min(100%, 560px);
+margin: 0 auto;
+padding: 28px 20px 40px;
+}
+
+header {
+text-align: center;
+margin-bottom: 24px;
+}
+
+h1 {
+margin: 0 0 7px;
+font-size: 28px;
+font-weight: 700;
+letter-spacing: -0.8px;
+}
+
+header p {
+margin: 0;
+color: var(--muted);
+font-size: 14px;
+}
+
+.wheel-section {
+position: relative;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 30px;
+}
+
+#wheel {
+width: min(100%, 420px);
+height: auto;
+display: block;
+}
+
+.pointer {
+position: absolute;
+z-index: 2;
+top: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 0;
+height: 0;
+border-left: 13px solid transparent;
+border-right: 13px solid transparent;
+border-top: 25px solid var(--accent);
+}
+
+#spinButton {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 94px;
+height: 94px;
+border-radius: 50%;
+background: var(--card);
+color: var(--text);
+font-size: 14px;
+font-weight: 700;
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+#spinButton:active {
+transform: translate(-50%, -50%) scale(0.95);
+}
+
+#spinButton:disabled {
+opacity: 0.7;
+}
+
+.movies-section {
+background: var(--card);
+border-radius: 22px;
+padding: 18px;
+}
+
+.section-title {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 14px;
+font-size: 14px;
+font-weight: 700;
+}
+
+#movieCount {
+color: var(--muted);
+font-weight: 500;
+}
+
+#movieList {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.movie {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 12px;
+min-height: 44px;
+padding: 10px 12px;
+border: 1px solid var(--line);
+border-radius: 13px;
+font-size: 14px;
+}
+
+.movie-name {
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+
+.delete-movie {
+flex-shrink: 0;
+width: 28px;
+height: 28px;
+border-radius: 50%;
+background: transparent;
+color: var(--muted);
+font-size: 18px;
+}
+
+.delete-movie:active {
+background: var(--line);
+}
+
+.add-movie {
+display: flex;
+gap: 8px;
+margin-top: 12px;
+}
+
+#movieInput {
+min-width: 0;
+flex: 1;
+height: 46px;
+padding: 0 14px;
+border: 1px solid var(--line);
+border-radius: 13px;
+outline: none;
+background: var(--bg);
+color: var(--text);
+}
+
+#movieInput:focus {
+border-color: #bdb9b0;
+}
+
+#addButton {
+width: 46px;
+height: 46px;
+flex-shrink: 0;
+border-radius: 13px;
+background: var(--text);
+color: white;
+font-size: 25px;
+line-height: 1;
+}
+
+.result {
+margin-top: 18px;
+padding: 22px;
+background: var(--text);
+color: white;
+border-radius: 22px;
+text-align: center;
+}
+
+.result-label {
+margin-bottom: 8px;
+color: #aaa;
+font-size: 12px;
+text-transform: uppercase;
+letter-spacing: 1.5px;
+}
+
+#resultMovie {
+margin-bottom: 18px;
+font-size: 24px;
+font-weight: 700;
+letter-spacing: -0.5px;
+}
+
+#againButton {
+padding: 12px 20px;
+border-radius: 12px;
+background: white;
+color: var(--text);
+font-size: 14px;
+font-weight: 700;
+}
+
+.hidden {
+display: none;
+}
+
+@media (max-width: 380px) {
+.app {
+padding-left: 14px;
+padding-right: 14px;
+}
+
+h1 {
+font-size: 25px;
+}
+}
