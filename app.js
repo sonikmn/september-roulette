@@ -29,13 +29,17 @@ const STORAGE_KEY = "september-roulette-movies";
 /* цвета колеса */
 
 const baseColors = [
-    "#e9d7ff",
-    "#ffd6e7",
-    "#ffe6cc",
-    "#fff4b8",
-    "#d4fbd8",
-    "#d6f0ff",
-    "#e0e7ff"
+
+    "#0f48a9",
+
+    "#7171e9",
+
+    "#ffe129",
+
+    "#f68227",
+
+    "#ff6004"
+
 ];
 
 
@@ -254,7 +258,7 @@ function drawWheel() {
                 baseColors[
                     i % baseColors.length
                 ],
-                0.72
+                0.88
             );
 
         ctx.fill();

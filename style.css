@@ -25,42 +25,67 @@ html {
 }
 
 body {
+
     margin: 0;
+
     min-height: 100vh;
 
-    font-family:
-        "Zen Kaku Gothic New",
-        sans-serif;
-
-    font-weight: 300;
-    color: var(--text);
-
     background:
-        radial-gradient(
-            circle at 8% 18%,
-            rgba(214, 240, 255, 0.38) 0%,
-            rgba(214, 240, 255, 0.18) 22%,
-            transparent 48%
-        ),
-        radial-gradient(
-            circle at 92% 32%,
-            rgba(224, 231, 255, 0.32) 0%,
-            rgba(224, 231, 255, 0.12) 25%,
-            transparent 50%
-        ),
-        radial-gradient(
-            circle at 18% 78%,
-            rgba(212, 251, 216, 0.20) 0%,
-            transparent 40%
-        ),
-        radial-gradient(
-            circle at 88% 86%,
-            rgba(255, 214, 231, 0.18) 0%,
-            transparent 42%
-        ),
-        #ffffff;
 
-    overflow-x: hidden;
+        radial-gradient(
+
+            circle at 8% 25%,
+
+            rgba(80, 120, 255, 0.18),
+
+            transparent 28%
+
+        ),
+
+        radial-gradient(
+
+            circle at 92% 20%,
+
+            rgba(255, 220, 80, 0.16),
+
+            transparent 25%
+
+        ),
+
+        radial-gradient(
+
+            circle at 5% 75%,
+
+            rgba(110, 150, 255, 0.13),
+
+            transparent 24%
+
+        ),
+
+        radial-gradient(
+
+            circle at 95% 72%,
+
+            rgba(255, 150, 100, 0.15),
+
+            transparent 26%
+
+        ),
+
+        radial-gradient(
+
+            circle at 50% 50%,
+
+            rgba(255, 190, 210, 0.08),
+
+            transparent 35%
+
+        ),
+
+        #faf9f7;
+
+    color: #30313a;
+
 }
 
 .app {
@@ -184,9 +209,24 @@ header p {
     max-width: 680px;
 
     filter:
-        drop-shadow(
-            0 8px 24px rgba(70, 70, 90, 0.08)
-        );
+
+    drop-shadow(
+
+        0 8px 24px rgba(70, 70, 90, 0.08)
+
+    )
+
+    drop-shadow(
+
+        0 0 18px rgba(113, 113, 233, 0.12)
+
+    )
+
+    drop-shadow(
+
+        0 0 28px rgba(255, 150, 80, 0.08)
+
+    );
 }
 
 .pointer {
