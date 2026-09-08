@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap');
 
 :root {
     --bg: #faf9f7;
-    --surface: rgba(255, 255, 255, 0.72);
+    --surface: rgba(255, 255, 255, 0.62);
+
     --text: #242424;
-    --muted: #9a9898;
-    --line: rgba(60, 60, 60, 0.09);
+    --muted: #9b9999;
+
+    --line: rgba(50, 50, 50, 0.08);
 
     --lilac: #e9d7ff;
     --petal: #ffd6e7;
@@ -16,8 +18,14 @@
     --periwinkle: #e0e7ff;
 }
 
+
+/* -------------------------
+   base
+------------------------- */
+
 * {
     box-sizing: border-box;
+
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -27,12 +35,14 @@ html {
 
 body {
     margin: 0;
+
     min-height: 100vh;
 
     color: var(--text);
 
     font-family:
-        "DM Sans",
+        "Noto Sans",
+        "Zen Kaku Gothic New",
         -apple-system,
         BlinkMacSystemFont,
         "Helvetica Neue",
@@ -40,19 +50,19 @@ body {
 
     background:
         radial-gradient(
-            circle at 12% 8%,
-            rgba(233, 215, 255, 0.24),
+            circle at 10% 10%,
+            rgba(233, 215, 255, 0.22),
             transparent 28%
         ),
         radial-gradient(
-            circle at 90% 18%,
+            circle at 90% 20%,
             rgba(255, 214, 231, 0.18),
             transparent 30%
         ),
         radial-gradient(
             circle at 50% 90%,
-            rgba(214, 240, 255, 0.16),
-            transparent 32%
+            rgba(214, 240, 255, 0.15),
+            transparent 34%
         ),
         var(--bg);
 }
@@ -64,6 +74,7 @@ input {
 
 button {
     border: 0;
+
     cursor: pointer;
 }
 
@@ -74,8 +85,13 @@ button {
 
 .app {
     width: min(100%, 620px);
+
     margin: 0 auto;
-    padding: 34px 22px 48px;
+
+    padding:
+        34px
+        22px
+        48px;
 }
 
 
@@ -84,48 +100,93 @@ button {
 ------------------------- */
 
 header {
+    position: relative;
+
     text-align: center;
+
     margin-bottom: 18px;
 }
+
+
+/*
+   маленький SEPTEMBER
+*/
 
 .eyebrow {
     display: block;
 
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 
-    color: #777474;
+    color: #737171;
+
+    font-family:
+        "Zen Kaku Gothic New",
+        "Noto Sans",
+        sans-serif;
 
     font-size: 10px;
-    font-weight: 500;
 
-    letter-spacing: 6px;
+    font-weight: 400;
+
+    letter-spacing: 8px;
+
     text-transform: uppercase;
 }
+
+
+/*
+   главный заголовок
+
+   теперь НЕ serif
+   и НЕ курсив
+*/
 
 h1 {
     margin: 0;
 
+    color: #292828;
+
     font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
+        "Zen Kaku Gothic New",
+        "Noto Sans",
+        sans-serif;
 
-    font-size: clamp(42px, 12vw, 68px);
-    font-weight: 400;
+    font-size:
+        clamp(
+            48px,
+            14vw,
+            76px
+        );
 
-    line-height: 0.92;
+    font-weight: 300;
 
-    letter-spacing: -2.5px;
+    line-height: 0.95;
+
+    letter-spacing: -3px;
 }
 
+
+/*
+   подзаголовок
+*/
+
 header p {
-    margin: 12px 0 0;
+    margin:
+        13px
+        0
+        0;
 
-    color: #999696;
+    color: #a09d9d;
 
-    font-size: 12px;
+    font-family:
+        "Noto Sans",
+        sans-serif;
 
-    letter-spacing: 4px;
+    font-size: 11px;
+
+    font-weight: 300;
+
+    letter-spacing: 5px;
 }
 
 
@@ -137,30 +198,34 @@ header p {
     position: relative;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
-    width: min(100%, 500px);
+    width: min(
+        100%,
+        500px
+    );
 
     aspect-ratio: 1;
 
-    margin: 22px auto 30px;
+    margin:
+        22px
+        auto
+        30px;
 }
 
 #wheel {
+    display: block;
+
     width: 100%;
     height: 100%;
 
-    display: block;
-
-    /*
-       мягкая тень вместо
-       чёрной рамки
-    */
-
     filter:
         drop-shadow(
-            0 8px 18px rgba(80, 70, 90, 0.07)
+            0 8px 18px
+            rgba(80, 70, 90, 0.06)
         );
 }
 
@@ -171,24 +236,33 @@ header p {
 
 .pointer {
     position: absolute;
+
     z-index: 5;
 
     top: -1px;
+
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     width: 0;
     height: 0;
 
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
+    border-left:
+        10px solid transparent;
 
-    border-top: 18px solid rgba(35, 35, 35, 0.82);
+    border-right:
+        10px solid transparent;
+
+    border-top:
+        18px solid
+        rgba(35, 35, 35, 0.78);
 
     filter:
         drop-shadow(
-            0 2px 3px rgba(0, 0, 0, 0.08)
+            0 2px 3px
+            rgba(0, 0, 0, 0.06)
         );
 }
 
@@ -199,6 +273,7 @@ header p {
 
 #spinButton {
     position: absolute;
+
     z-index: 4;
 
     top: 50%;
@@ -207,29 +282,42 @@ header p {
     width: 94px;
     height: 94px;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
 
     border-radius: 50%;
 
-    color: #343232;
+    color: #3d3b3b;
 
     background:
         linear-gradient(
             135deg,
-            rgba(233, 215, 255, 0.78),
-            rgba(255, 214, 231, 0.78) 35%,
-            rgba(255, 244, 184, 0.78) 65%,
-            rgba(212, 251, 216, 0.78)
+            rgba(233, 215, 255, 0.72),
+            rgba(255, 214, 231, 0.72) 35%,
+            rgba(255, 244, 184, 0.72) 65%,
+            rgba(212, 251, 216, 0.72)
         );
 
     box-shadow:
-        0 6px 22px rgba(80, 70, 90, 0.08),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.65);
+        0 6px 22px
+        rgba(80, 70, 90, 0.07),
 
-    font-size: 11px;
+        inset 0 0 0 1px
+        rgba(255, 255, 255, 0.62);
+
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 10px;
+
     font-weight: 500;
 
-    letter-spacing: 3px;
+    letter-spacing: 5px;
+
     text-transform: uppercase;
 
     transition:
@@ -239,16 +327,25 @@ header p {
 
 #spinButton:hover {
     box-shadow:
-        0 9px 28px rgba(80, 70, 90, 0.11),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+        0 9px 28px
+        rgba(80, 70, 90, 0.10),
+
+        inset 0 0 0 1px
+        rgba(255, 255, 255, 0.7);
 }
 
 #spinButton:active {
-    transform: translate(-50%, -50%) scale(0.95);
+    transform:
+        translate(
+            -50%,
+            -50%
+        )
+        scale(0.95);
 }
 
 #spinButton:disabled {
     cursor: default;
+
     opacity: 0.65;
 }
 
@@ -264,64 +361,94 @@ header p {
 
     padding: 20px;
 
-    background: rgba(255, 255, 255, 0.60);
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.56
+        );
 
-    border: 1px solid rgba(80, 70, 90, 0.08);
+    border:
+        1px solid
+        rgba(70, 70, 70, 0.07);
 
     border-radius: 28px;
 
-    backdrop-filter: blur(18px);
+    backdrop-filter:
+        blur(18px);
 
     box-shadow:
-        0 12px 35px rgba(70, 60, 80, 0.035);
+        0 12px 35px
+        rgba(70, 60, 80, 0.035);
 }
+
+
+/* subtle pastel haze */
 
 .movies-section::before {
     content: "";
 
     position: absolute;
 
-    width: 160px;
-    height: 160px;
+    width: 170px;
+    height: 170px;
 
-    right: -80px;
-    top: -80px;
+    right: -90px;
+    top: -90px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(201, 160, 255, 0.12),
+            rgba(201, 160, 255, 0.10),
             transparent 70%
         );
 
     pointer-events: none;
 }
 
+
+/* -------------------------
+   section title
+------------------------- */
+
 .section-title {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        baseline;
 
     margin-bottom: 14px;
 }
 
 .section-title span:first-child {
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
+    color: #343232;
 
-    font-size: 22px;
+    font-family:
+        "Zen Kaku Gothic New",
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 23px;
+
+    font-weight: 300;
+
+    letter-spacing: -0.5px;
 }
 
 #movieCount {
     color: #aaa7a7;
 
-    font-size: 11px;
+    font-size: 10px;
 
-    letter-spacing: 4px;
+    font-weight: 300;
+
+    letter-spacing: 5px;
 }
 
 
@@ -331,7 +458,9 @@ header p {
 
 #movieList {
     display: flex;
+
     flex-direction: column;
+
     gap: 0;
 
     max-height: 300px;
@@ -341,19 +470,31 @@ header p {
 
 .movie {
     display: flex;
+
     align-items: center;
-    justify-content: space-between;
+
+    justify-content:
+        space-between;
 
     gap: 12px;
 
     min-height: 44px;
 
-    padding: 8px 4px 8px 12px;
+    padding:
+        8px
+        4px
+        8px
+        12px;
 
     border-bottom:
-        1px solid rgba(70, 70, 70, 0.08);
+        1px solid
+        rgba(70, 70, 70, 0.075);
 
     font-size: 13px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.1px;
 }
 
 .movie:last-child {
@@ -378,16 +519,25 @@ header p {
 
     border-radius: 50%;
 
-    background: transparent;
+    background:
+        transparent;
 
     color: #aaa;
 
     font-size: 17px;
+
+    font-weight: 300;
 }
 
 .delete-movie:hover,
 .delete-movie:active {
-    background: rgba(255, 214, 231, 0.45);
+    background:
+        rgba(
+            255,
+            214,
+            231,
+            0.35
+        );
 
     color: #555;
 }
@@ -412,21 +562,37 @@ header p {
 
     height: 46px;
 
-    padding: 0 16px;
+    padding:
+        0
+        17px;
 
     border:
-        1px solid rgba(70, 70, 70, 0.08);
+        1px solid
+        rgba(70, 70, 70, 0.07);
 
     border-radius: 999px;
 
     outline: none;
 
     background:
-        rgba(250, 249, 247, 0.68);
+        rgba(
+            250,
+            249,
+            247,
+            0.62
+        );
 
     color: var(--text);
 
-    font-size: 13px;
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 300;
+
+    letter-spacing: 0.3px;
 
     transition:
         border-color 0.2s ease,
@@ -439,10 +605,21 @@ header p {
 
 #movieInput:focus {
     border-color:
-        rgba(190, 160, 210, 0.32);
+        rgba(
+            190,
+            160,
+            210,
+            0.28
+        );
 
     box-shadow:
-        0 0 0 4px rgba(233, 215, 255, 0.20);
+        0 0 0 4px
+        rgba(
+            233,
+            215,
+            255,
+            0.17
+        );
 }
 
 #addButton {
@@ -456,22 +633,30 @@ header p {
     background:
         linear-gradient(
             135deg,
-            rgba(233, 215, 255, 0.72),
-            rgba(255, 214, 231, 0.78)
+            rgba(233, 215, 255, 0.70),
+            rgba(255, 214, 231, 0.76)
         );
 
     color: #555;
 
-    font-size: 24px;
+    font-family:
+        "Noto Sans",
+        sans-serif;
+
+    font-size: 23px;
+
+    font-weight: 300;
 
     line-height: 1;
 
     box-shadow:
-        0 5px 18px rgba(100, 80, 130, 0.06);
+        0 5px 18px
+        rgba(100, 80, 130, 0.055);
 }
 
 #addButton:active {
-    transform: scale(0.95);
+    transform:
+        scale(0.95);
 }
 
 #addButton:disabled {
@@ -490,7 +675,10 @@ header p {
 
     margin-top: 16px;
 
-    padding: 30px 22px 24px;
+    padding:
+        30px
+        22px
+        24px;
 
     border-radius: 28px;
 
@@ -499,38 +687,60 @@ header p {
     background:
         linear-gradient(
             135deg,
-            rgba(233, 215, 255, 0.72),
-            rgba(255, 214, 231, 0.72) 32%,
-            rgba(255, 244, 184, 0.72) 62%,
-            rgba(212, 251, 216, 0.72)
+            rgba(233, 215, 255, 0.68),
+            rgba(255, 214, 231, 0.68) 32%,
+            rgba(255, 244, 184, 0.68) 62%,
+            rgba(212, 251, 216, 0.68)
         );
 
     box-shadow:
-        0 14px 36px rgba(100, 80, 120, 0.07);
+        0 14px 36px
+        rgba(100, 80, 120, 0.06);
 
     animation:
-        resultIn 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+        resultIn
+        0.45s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        );
 }
 
 @keyframes resultIn {
+
     from {
         opacity: 0;
-        transform: translateY(12px) scale(0.98);
+
+        transform:
+            translateY(12px)
+            scale(0.98);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
 .result-label {
     margin-bottom: 10px;
 
-    color: rgba(30, 30, 30, 0.45);
+    color:
+        rgba(
+            30,
+            30,
+            30,
+            0.42
+        );
 
     font-size: 9px;
-    font-weight: 600;
+
+    font-weight: 500;
 
     letter-spacing: 3px;
 
@@ -541,41 +751,60 @@ header p {
     margin-bottom: 20px;
 
     font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
+        "Zen Kaku Gothic New",
+        "Noto Sans",
+        sans-serif;
 
-    font-size: clamp(28px, 7vw, 42px);
+    font-size:
+        clamp(
+            28px,
+            7vw,
+            42px
+        );
+
+    font-weight: 300;
 
     line-height: 1;
+
+    letter-spacing: -1px;
 }
 
 #againButton {
-    padding: 12px 20px;
+    padding:
+        12px
+        20px;
 
     border-radius: 999px;
 
     background:
-        rgba(255, 255, 255, 0.58);
+        rgba(
+            255,
+            255,
+            255,
+            0.54
+        );
 
     color: var(--text);
 
     box-shadow:
-        0 5px 18px rgba(70, 60, 80, 0.06);
+        0 5px 18px
+        rgba(70, 60, 80, 0.05);
 
-    font-size: 11px;
-    font-weight: 600;
+    font-size: 10px;
 
-    letter-spacing: 1.5px;
+    font-weight: 500;
+
+    letter-spacing: 2px;
 
     text-transform: uppercase;
 
-    backdrop-filter: blur(8px);
+    backdrop-filter:
+        blur(8px);
 }
 
 
 /* -------------------------
-   utility
+   hidden
 ------------------------- */
 
 .hidden {
@@ -590,11 +819,15 @@ header p {
 @media (max-width: 420px) {
 
     .app {
-        padding: 26px 14px 34px;
+        padding:
+            26px
+            14px
+            34px;
     }
 
     .wheel-section {
         margin-top: 20px;
+
         margin-bottom: 24px;
     }
 
@@ -607,5 +840,11 @@ header p {
         padding: 17px;
 
         border-radius: 24px;
+    }
+
+    h1 {
+        font-size: 52px;
+
+        letter-spacing: -2.5px;
     }
 }
