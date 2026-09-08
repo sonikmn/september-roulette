@@ -39,6 +39,8 @@ const baseColors = [
     "#f68227",
 
     "#ff6004"
+    
+    "#4f6fcf"
 
 ];
 
