@@ -2,10 +2,10 @@
 
 :root {
     --bg: #faf9f7;
-    --surface: #ffffff;
-    --text: #1e1e1e;
-    --muted: #8a8a8a;
-    --line: #eaeaea;
+    --surface: rgba(255, 255, 255, 0.72);
+    --text: #242424;
+    --muted: #9a9898;
+    --line: rgba(60, 60, 60, 0.09);
 
     --lilac: #e9d7ff;
     --petal: #ffd6e7;
@@ -28,19 +28,31 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
+
     color: var(--text);
-    font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+
+    font-family:
+        "DM Sans",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        sans-serif;
 
     background:
         radial-gradient(
             circle at 12% 8%,
-            rgba(233, 215, 255, 0.28),
-            transparent 24%
+            rgba(233, 215, 255, 0.24),
+            transparent 28%
         ),
         radial-gradient(
             circle at 90% 18%,
-            rgba(255, 214, 231, 0.22),
-            transparent 25%
+            rgba(255, 214, 231, 0.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(214, 240, 255, 0.16),
+            transparent 32%
         ),
         var(--bg);
 }
@@ -55,48 +67,71 @@ button {
     cursor: pointer;
 }
 
+
+/* -------------------------
+   app
+------------------------- */
+
 .app {
     width: min(100%, 620px);
     margin: 0 auto;
     padding: 34px 22px 48px;
 }
 
-/* header */
+
+/* -------------------------
+   header
+------------------------- */
 
 header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .eyebrow {
     display: block;
-    margin-bottom: 5px;
-    color: var(--muted);
+
+    margin-bottom: 4px;
+
+    color: #777474;
+
     font-size: 10px;
     font-weight: 500;
-    letter-spacing: 4px;
+
+    letter-spacing: 6px;
     text-transform: uppercase;
 }
 
 h1 {
     margin: 0;
 
-    font-family: "Playfair Display", Georgia, serif;
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
     font-size: clamp(42px, 12vw, 68px);
     font-weight: 400;
+
     line-height: 0.92;
+
     letter-spacing: -2.5px;
 }
 
 header p {
     margin: 12px 0 0;
 
-    color: var(--muted);
+    color: #999696;
+
     font-size: 12px;
-    letter-spacing: 1.5px;
+
+    letter-spacing: 4px;
 }
 
-/* wheel */
+
+/* -------------------------
+   wheel
+------------------------- */
 
 .wheel-section {
     position: relative;
@@ -106,21 +141,33 @@ header p {
     justify-content: center;
 
     width: min(100%, 500px);
+
     aspect-ratio: 1;
 
-    margin: 24px auto 30px;
+    margin: 22px auto 30px;
 }
 
 #wheel {
     width: 100%;
     height: 100%;
+
     display: block;
+
+    /*
+       мягкая тень вместо
+       чёрной рамки
+    */
 
     filter:
         drop-shadow(
-            0 16px 32px rgba(30, 30, 30, 0.08)
+            0 8px 18px rgba(80, 70, 90, 0.07)
         );
 }
+
+
+/* -------------------------
+   pointer
+------------------------- */
 
 .pointer {
     position: absolute;
@@ -134,17 +181,21 @@ header p {
     width: 0;
     height: 0;
 
-    border-left: 11px solid transparent;
-    border-right: 11px solid transparent;
-    border-top: 20px solid var(--text);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+
+    border-top: 18px solid rgba(35, 35, 35, 0.82);
 
     filter:
         drop-shadow(
-            0 3px 5px rgba(0, 0, 0, 0.12)
+            0 2px 3px rgba(0, 0, 0, 0.08)
         );
 }
 
-/* spin */
+
+/* -------------------------
+   center button
+------------------------- */
 
 #spinButton {
     position: absolute;
@@ -153,31 +204,32 @@ header p {
     top: 50%;
     left: 50%;
 
-    width: 92px;
-    height: 92px;
+    width: 94px;
+    height: 94px;
 
     transform: translate(-50%, -50%);
 
     border-radius: 50%;
 
-    color: var(--text);
+    color: #343232;
 
     background:
         linear-gradient(
             135deg,
-            var(--lilac),
-            var(--petal) 35%,
-            var(--lemon) 65%,
-            var(--mint)
+            rgba(233, 215, 255, 0.78),
+            rgba(255, 214, 231, 0.78) 35%,
+            rgba(255, 244, 184, 0.78) 65%,
+            rgba(212, 251, 216, 0.78)
         );
 
     box-shadow:
-        0 8px 28px rgba(80, 60, 90, 0.12),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+        0 6px 22px rgba(80, 70, 90, 0.08),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.65);
 
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
+    font-weight: 500;
+
+    letter-spacing: 3px;
     text-transform: uppercase;
 
     transition:
@@ -187,12 +239,12 @@ header p {
 
 #spinButton:hover {
     box-shadow:
-        0 12px 34px rgba(80, 60, 90, 0.16),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+        0 9px 28px rgba(80, 70, 90, 0.11),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.72);
 }
 
 #spinButton:active {
-    transform: translate(-50%, -50%) scale(0.94);
+    transform: translate(-50%, -50%) scale(0.95);
 }
 
 #spinButton:disabled {
@@ -200,20 +252,28 @@ header p {
     opacity: 0.65;
 }
 
-/* movies */
+
+/* -------------------------
+   movies
+------------------------- */
 
 .movies-section {
     position: relative;
+
     overflow: hidden;
-
-    background: rgba(255, 255, 255, 0.72);
-
-    border: 1px solid rgba(234, 234, 234, 0.9);
-    border-radius: 28px;
 
     padding: 20px;
 
-    backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, 0.60);
+
+    border: 1px solid rgba(80, 70, 90, 0.08);
+
+    border-radius: 28px;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 12px 35px rgba(70, 60, 80, 0.035);
 }
 
 .movies-section::before {
@@ -221,18 +281,18 @@ header p {
 
     position: absolute;
 
-    width: 130px;
-    height: 130px;
+    width: 160px;
+    height: 160px;
 
-    right: -60px;
-    top: -70px;
+    right: -80px;
+    top: -80px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(201, 160, 255, 0.22),
+            rgba(201, 160, 255, 0.12),
             transparent 70%
         );
 
@@ -248,23 +308,34 @@ header p {
 }
 
 .section-title span:first-child {
-    font-family: "Playfair Display", Georgia, serif;
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
     font-size: 22px;
 }
 
 #movieCount {
-    color: var(--muted);
+    color: #aaa7a7;
 
     font-size: 11px;
-    letter-spacing: 2px;
+
+    letter-spacing: 4px;
 }
+
+
+/* -------------------------
+   movie list
+------------------------- */
 
 #movieList {
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 0;
 
     max-height: 300px;
+
     overflow-y: auto;
 }
 
@@ -279,7 +350,8 @@ header p {
 
     padding: 8px 4px 8px 12px;
 
-    border-bottom: 1px solid var(--line);
+    border-bottom:
+        1px solid rgba(70, 70, 70, 0.08);
 
     font-size: 13px;
 }
@@ -292,7 +364,9 @@ header p {
     min-width: 0;
 
     overflow: hidden;
+
     text-overflow: ellipsis;
+
     white-space: nowrap;
 }
 
@@ -305,6 +379,7 @@ header p {
     border-radius: 50%;
 
     background: transparent;
+
     color: #aaa;
 
     font-size: 17px;
@@ -312,14 +387,19 @@ header p {
 
 .delete-movie:hover,
 .delete-movie:active {
-    background: var(--petal);
-    color: var(--text);
+    background: rgba(255, 214, 231, 0.45);
+
+    color: #555;
 }
 
-/* add */
+
+/* -------------------------
+   add movie
+------------------------- */
 
 .add-movie {
     display: flex;
+
     gap: 8px;
 
     margin-top: 14px;
@@ -327,18 +407,23 @@ header p {
 
 #movieInput {
     min-width: 0;
+
     flex: 1;
 
     height: 46px;
 
-    padding: 0 14px;
+    padding: 0 16px;
 
-    border: 1px solid var(--line);
-    border-radius: 14px;
+    border:
+        1px solid rgba(70, 70, 70, 0.08);
+
+    border-radius: 999px;
 
     outline: none;
 
-    background: var(--bg);
+    background:
+        rgba(250, 249, 247, 0.68);
+
     color: var(--text);
 
     font-size: 13px;
@@ -349,14 +434,15 @@ header p {
 }
 
 #movieInput::placeholder {
-    color: #aaa;
+    color: #aaa7a7;
 }
 
 #movieInput:focus {
-    border-color: #d7c7e7;
+    border-color:
+        rgba(190, 160, 210, 0.32);
 
     box-shadow:
-        0 0 0 4px rgba(233, 215, 255, 0.35);
+        0 0 0 4px rgba(233, 215, 255, 0.20);
 }
 
 #addButton {
@@ -365,23 +451,23 @@ header p {
 
     flex-shrink: 0;
 
-    border-radius: 14px;
+    border-radius: 50%;
 
     background:
         linear-gradient(
             135deg,
-            var(--sky),
-            var(--lilac),
-            var(--petal)
+            rgba(233, 215, 255, 0.72),
+            rgba(255, 214, 231, 0.78)
         );
 
-    color: var(--text);
+    color: #555;
 
     font-size: 24px;
+
     line-height: 1;
 
     box-shadow:
-        0 5px 18px rgba(100, 80, 130, 0.1);
+        0 5px 18px rgba(100, 80, 130, 0.06);
 }
 
 #addButton:active {
@@ -392,10 +478,14 @@ header p {
     opacity: 0.5;
 }
 
-/* result */
+
+/* -------------------------
+   result
+------------------------- */
 
 .result {
     position: relative;
+
     overflow: hidden;
 
     margin-top: 16px;
@@ -407,21 +497,16 @@ header p {
     text-align: center;
 
     background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255, 255, 255, 0.75),
-            transparent 32%
-        ),
         linear-gradient(
             135deg,
-            var(--lilac),
-            var(--petal) 32%,
-            var(--lemon) 62%,
-            var(--mint)
+            rgba(233, 215, 255, 0.72),
+            rgba(255, 214, 231, 0.72) 32%,
+            rgba(255, 244, 184, 0.72) 62%,
+            rgba(212, 251, 216, 0.72)
         );
 
     box-shadow:
-        0 16px 40px rgba(100, 80, 120, 0.1);
+        0 14px 36px rgba(100, 80, 120, 0.07);
 
     animation:
         resultIn 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -442,19 +527,23 @@ header p {
 .result-label {
     margin-bottom: 10px;
 
-    color: rgba(30, 30, 30, 0.55);
+    color: rgba(30, 30, 30, 0.45);
 
     font-size: 9px;
     font-weight: 600;
 
     letter-spacing: 3px;
+
     text-transform: uppercase;
 }
 
 #resultMovie {
     margin-bottom: 20px;
 
-    font-family: "Playfair Display", Georgia, serif;
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
 
     font-size: clamp(28px, 7vw, 42px);
 
@@ -466,29 +555,40 @@ header p {
 
     border-radius: 999px;
 
-    background: rgba(255, 255, 255, 0.72);
+    background:
+        rgba(255, 255, 255, 0.58);
 
     color: var(--text);
 
     box-shadow:
-        0 5px 18px rgba(70, 60, 80, 0.08);
+        0 5px 18px rgba(70, 60, 80, 0.06);
 
     font-size: 11px;
     font-weight: 600;
 
     letter-spacing: 1.5px;
+
     text-transform: uppercase;
 
     backdrop-filter: blur(8px);
 }
 
+
+/* -------------------------
+   utility
+------------------------- */
+
 .hidden {
     display: none !important;
 }
 
-/* mobile */
+
+/* -------------------------
+   mobile
+------------------------- */
 
 @media (max-width: 420px) {
+
     .app {
         padding: 26px 14px 34px;
     }
@@ -505,6 +605,7 @@ header p {
 
     .movies-section {
         padding: 17px;
+
         border-radius: 24px;
     }
 }

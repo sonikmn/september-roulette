@@ -5,6 +5,7 @@ if (tg) {
     tg.expand();
 }
 
+
 const canvas = document.getElementById("wheel");
 const ctx = canvas.getContext("2d");
 
@@ -21,10 +22,11 @@ const resultMovie = document.getElementById("resultMovie");
 
 const againButton = document.getElementById("againButton");
 
+
 const STORAGE_KEY = "september-roulette-movies";
 
 
-/* цвета */
+/* цвета колеса */
 
 const baseColors = [
     "#e9d7ff",
@@ -33,29 +35,18 @@ const baseColors = [
     "#fff4b8",
     "#d4fbd8",
     "#d6f0ff",
-    "#e0e7ff",
-    "#e9d7ff"
-];
-
-const glowColors = [
-    "#c9a0ff",
-    "#ff8fb1",
-    "#ffb347",
-    "#ffe866",
-    "#98f5a1",
-    "#7dd3fc",
-    "#c9a0ff",
-    "#ff6ec7"
+    "#e0e7ff"
 ];
 
 
 let movies = loadMovies();
 
 let rotation = 0;
+
 let spinning = false;
 
 
-/* загрузка сохранённых фильмов */
+/* загрузка фильмов */
 
 function loadMovies() {
 
@@ -90,6 +81,7 @@ function loadMovies() {
         );
     }
 
+
     return [
         "interstellar",
         "parasite",
@@ -122,7 +114,7 @@ function saveMovies() {
 }
 
 
-/* сокращение длинных названий */
+/* сокращение текста */
 
 function fitText(text, maxLength) {
 
@@ -130,11 +122,16 @@ function fitText(text, maxLength) {
         return text;
     }
 
-    return text.slice(0, maxLength - 1) + "…";
+    return text.slice(
+        0,
+        maxLength - 1
+    ) + "…";
 }
 
 
-/* рисуем колесо */
+/* -------------------------
+   рисуем колесо
+------------------------- */
 
 function drawWheel() {
 
@@ -142,7 +139,8 @@ function drawWheel() {
 
     const center = size / 2;
 
-    const radius = size / 2 - 12;
+    const radius =
+        size / 2 - 14;
 
 
     ctx.clearRect(
@@ -167,19 +165,23 @@ function drawWheel() {
             Math.PI * 2
         );
 
-        ctx.fillStyle = "#f0ede9";
+        ctx.fillStyle =
+            "rgba(240, 237, 233, 0.55)";
 
         ctx.fill();
 
 
-        ctx.fillStyle = "#8a8a8a";
+        ctx.fillStyle =
+            "#9a9898";
 
         ctx.font =
             "500 26px DM Sans, sans-serif";
 
-        ctx.textAlign = "center";
+        ctx.textAlign =
+            "center";
 
-        ctx.textBaseline = "middle";
+        ctx.textBaseline =
+            "middle";
 
         ctx.fillText(
             "добавь варианты",
@@ -192,10 +194,12 @@ function drawWheel() {
 
 
     const slice =
-        (Math.PI * 2) / movies.length;
+        (Math.PI * 2) /
+        movies.length;
 
 
     ctx.save();
+
 
     ctx.translate(
         center,
@@ -210,7 +214,9 @@ function drawWheel() {
     );
 
 
-    /* сектора */
+    /* -------------------------
+       сектора
+    ------------------------- */
 
     for (
         let i = 0;
@@ -225,48 +231,11 @@ function drawWheel() {
             start + slice;
 
 
-        /* мягкий градиент */
+        /*
+           простой прозрачный цвет.
 
-        const gradient =
-            ctx.createRadialGradient(
-                center - radius * 0.28,
-                center - radius * 0.32,
-                10,
-
-                center,
-                center,
-                radius
-            );
-
-
-        gradient.addColorStop(
-            0,
-            "#ffffff"
-        );
-
-        gradient.addColorStop(
-            0.16,
-            baseColors[
-                i % baseColors.length
-            ]
-        );
-
-        gradient.addColorStop(
-            0.72,
-            baseColors[
-                i % baseColors.length
-            ]
-        );
-
-        gradient.addColorStop(
-            1,
-            glowColors[
-                i % glowColors.length
-            ]
-        );
-
-
-        /* сектор */
+           никакого белого блика.
+        */
 
         ctx.beginPath();
 
@@ -286,17 +255,25 @@ function drawWheel() {
         ctx.closePath();
 
 
-        ctx.fillStyle = gradient;
+        ctx.fillStyle =
+            hexToRgba(
+                baseColors[
+                    i % baseColors.length
+                ],
+                0.72
+            );
 
         ctx.fill();
 
 
-        /* разделитель */
+        /*
+           очень тонкий разделитель
+        */
 
         ctx.strokeStyle =
-            "rgba(255,255,255,.88)";
+            "rgba(255, 255, 255, 0.62)";
 
-        ctx.lineWidth = 4;
+        ctx.lineWidth = 3;
 
         ctx.stroke();
 
@@ -304,6 +281,7 @@ function drawWheel() {
         /* текст */
 
         ctx.save();
+
 
         ctx.translate(
             center,
@@ -325,7 +303,7 @@ function drawWheel() {
 
 
         ctx.fillStyle =
-            "#242424";
+            "rgba(45, 43, 45, 0.82)";
 
 
         ctx.font =
@@ -357,7 +335,12 @@ function drawWheel() {
     ctx.restore();
 
 
-    /* внешняя рамка */
+    /*
+       мягкая внешняя рамка.
+
+       раньше была почти чёрная,
+       теперь она очень прозрачная.
+    */
 
     ctx.beginPath();
 
@@ -370,35 +353,68 @@ function drawWheel() {
     );
 
     ctx.strokeStyle =
-        "rgba(30,30,30,.82)";
+        "rgba(90, 82, 95, 0.16)";
 
     ctx.lineWidth = 5;
 
     ctx.stroke();
 
 
-    /* внутренняя тонкая линия */
+    /*
+       внутренняя тонкая линия
+    */
 
     ctx.beginPath();
 
     ctx.arc(
         center,
         center,
-        radius - 7,
+        radius - 5,
         0,
         Math.PI * 2
     );
 
     ctx.strokeStyle =
-        "rgba(255,255,255,.75)";
+        "rgba(255, 255, 255, 0.38)";
 
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 1.5;
 
     ctx.stroke();
 }
 
 
-/* список фильмов */
+/* hex → rgba */
+
+function hexToRgba(hex, alpha) {
+
+    const value =
+        hex.replace("#", "");
+
+    const r =
+        parseInt(
+            value.substring(0, 2),
+            16
+        );
+
+    const g =
+        parseInt(
+            value.substring(2, 4),
+            16
+        );
+
+    const b =
+        parseInt(
+            value.substring(4, 6),
+            16
+        );
+
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+
+/* -------------------------
+   список фильмов
+------------------------- */
 
 function renderMovies() {
 
@@ -406,7 +422,9 @@ function renderMovies() {
 
 
     movieCount.textContent =
-        String(movies.length).padStart(2, "0");
+        String(
+            movies.length
+        ).padStart(2, "0");
 
 
     movies.forEach(
@@ -478,7 +496,9 @@ function renderMovies() {
 }
 
 
-/* добавить фильм */
+/* -------------------------
+   добавить фильм
+------------------------- */
 
 function addMovie() {
 
@@ -493,8 +513,6 @@ function addMovie() {
         return;
     }
 
-
-    /* проверяем дубликаты */
 
     if (
         movies.some(
@@ -512,8 +530,10 @@ function addMovie() {
 
         setTimeout(
             () => {
+
                 movieInput.placeholder =
                     "название фильма";
+
             },
             1800
         );
@@ -560,7 +580,9 @@ movieInput.addEventListener(
 );
 
 
-/* вращение */
+/* -------------------------
+   вращение
+------------------------- */
 
 function spin() {
 
@@ -579,8 +601,10 @@ function spin() {
 
         setTimeout(
             () => {
+
                 movieInput.placeholder =
                     "название фильма";
+
             },
             1800
         );
@@ -604,8 +628,6 @@ function spin() {
     );
 
 
-    /* выбираем победителя */
-
     const winner =
         Math.floor(
             Math.random() *
@@ -617,11 +639,6 @@ function spin() {
         (Math.PI * 2) /
         movies.length;
 
-
-    /*
-        сектор должен оказаться
-        ровно под верхним указателем
-    */
 
     const targetAngle =
         -(
@@ -635,7 +652,7 @@ function spin() {
         (
             rotation %
             (Math.PI * 2)
-        +
+            +
             Math.PI * 2
         ) %
         (Math.PI * 2);
@@ -652,8 +669,6 @@ function spin() {
             Math.PI * 2;
     }
 
-
-    /* 5–7 полных оборотов */
 
     const extraSpins =
         (
@@ -684,8 +699,6 @@ function spin() {
         performance.now();
 
 
-    /* анимация */
-
     function animate(now) {
 
         const progress =
@@ -695,8 +708,6 @@ function spin() {
                 1
             );
 
-
-        /* красивое замедление */
 
         const eased =
             1 -
@@ -748,8 +759,6 @@ function spin() {
             false;
 
 
-        /* результат */
-
         resultMovie.textContent =
             movies[winner];
 
@@ -778,7 +787,7 @@ spinButton.addEventListener(
 );
 
 
-/* крутить снова */
+/* снова */
 
 againButton.addEventListener(
     "click",
@@ -793,7 +802,7 @@ againButton.addEventListener(
 );
 
 
-/* первый запуск */
+/* запуск */
 
 renderMovies();
 
