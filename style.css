@@ -133,6 +133,47 @@ header p {
     justify-content: center;
     align-items: center;
 }
+#spinButton {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 20;
+
+    width: 150px;
+    height: 150px;
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd6e7 0%,
+            #e9d7ff 48%,
+            #d4fbd8 100%
+        );
+
+    font-family:
+        "Zen Kaku Gothic New",
+        sans-serif;
+
+    font-size: 15px;
+    font-weight: 300;
+
+    letter-spacing: 5px;
+    text-transform: uppercase;
+
+    color: #34343a;
+
+    box-shadow:
+        0 6px 20px rgba(70, 70, 90, 0.08);
+
+    cursor: pointer;
+}
 
 #wheel {
     display: block;
@@ -222,11 +263,13 @@ header p {
     width: 100%;
 }
 
-.movie-item {
+.movie {
     display: flex;
+
     align-items: center;
     justify-content: space-between;
 
+    width: 100%;
     min-height: 52px;
 
     border-top: 1px solid var(--line);
@@ -242,6 +285,55 @@ header p {
     text-transform: uppercase;
 
     color: #50515a;
+}
+
+.movie-name {
+    flex: 1;
+
+    min-width: 0;
+
+    font-family:
+        "Zen Kaku Gothic New",
+        sans-serif;
+
+    font-size: 15px;
+    font-weight: 300;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: #50515a;
+}
+
+.delete-movie {
+    flex: 0 0 auto;
+
+    width: 32px;
+    height: 32px;
+
+    margin-left: 16px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: transparent;
+
+    padding: 0;
+
+    font-family:
+        "Zen Kaku Gothic New",
+        sans-serif;
+
+    font-size: 20px;
+    font-weight: 300;
+
+    line-height: 32px;
+
+    text-align: center;
+
+    color: #a7a9b2;
+
+    cursor: pointer;
 }
 
 .movie-item button {
@@ -460,11 +552,36 @@ header p {
         letter-spacing: 4px;
     }
 
-    .movie-item {
-        min-height: 48px;
-        font-size: 13px;
-        letter-spacing: 2.5px;
-    }
+    .movie {
+    min-height: 48px;
+
+    font-size: 13px;
+
+    letter-spacing: 2.5px;
+}
+
+.movie-name {
+    font-size: 13px;
+    letter-spacing: 2.5px;
+}
+
+.delete-movie {
+    width: 30px;
+    height: 30px;
+
+    margin-left: 12px;
+
+    font-size: 18px;
+}
+
+#spinButton {
+    width: 120px;
+    height: 120px;
+
+    font-size: 13px;
+    letter-spacing: 4px;
+}
+
 
     #movieInput {
         font-size: 13px;
