@@ -83,12 +83,12 @@ function loadMovies() {
 
 
     return [
-        "interstellar",
-        "parasite",
-        "whiplash",
-        "the shining",
-        "hereditary",
-        "arrival"
+        "finding nemo",
+        "pirates of the caribbean",
+        "twilight",
+        "men in black",
+        "donnie darko",
+        "leon"
     ];
 }
 
