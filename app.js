@@ -366,7 +366,7 @@ function drawWheel() {
     ctx.arc(
         center,
         center,
-        radius - 5,
+        radius - 2,
         0,
         Math.PI * 2
     );
