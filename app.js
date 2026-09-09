@@ -833,7 +833,7 @@ function spin() {
 
         result.scrollIntoView({
             behavior: "smooth",
-            block: "nearest"
+            block: "end"
         });
     }
 
