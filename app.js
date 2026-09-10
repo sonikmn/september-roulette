@@ -761,6 +761,9 @@ function spin() {
     const startTime =
         performance.now();
 
+    const sectorAngle = (Math.PI * 2) / movies.length;
+    let lastHapticSector = Math.floor(startRotation / sectorAngle);
+
 
     function animate(now) {
 
@@ -788,7 +791,23 @@ function spin() {
             ) *
             eased;
 
+        const currentHapticSector = Math.floor(rotation / sectorAngle);
 
+        if (currentHapticSector !== lastHapticSector) {
+
+            lastHapticSector = currentHapticSector;
+
+            if (tg?.HapticFeedback) {
+
+                tg.HapticFeedback.impactOccurred(
+
+                    progress > 0.75 ? "medium" : "light"
+
+                );
+
+            }
+
+        }
         drawWheel();
 
 
