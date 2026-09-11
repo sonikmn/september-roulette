@@ -850,10 +850,17 @@ function spin() {
         );
 
 
-        result.scrollIntoView({
-            behavior: "smooth",
-            block: "end"
-        });
+        requestAnimationFrame(() => {
+
+            window.scrollTo({
+
+                top: document.documentElement.scrollHeight,
+
+             behavior: "smooth"
+
+             });
+
+});
     }
 
 
